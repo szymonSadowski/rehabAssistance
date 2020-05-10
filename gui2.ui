@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>trainInfoWindow</class>
+ <widget class="QMainWindow" name="trainInfoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>680</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RehabAssistance</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:black</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QListWidget" name="exerciseInfoList">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>256</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Ćwiczenie 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ćwiczenie 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ćwiczenie 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ćwiczenie 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="previewLabel">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>20</y>
+      <width>251</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+    </property>
+    <property name="text">
+     <string>Opis ćwiczenia</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonTrainInfoNow">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>330</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+    </property>
+    <property name="text">
+     <string>Wykonaj ćwiczenie</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonTrainInfoBack">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>330</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+    </property>
+    <property name="text">
+     <string>Cofnij</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelInfoTrainDescription">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>140</y>
+      <width>321</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Helvetica Neue,sans-serif</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wybierz ćwiczenie, w oknie obok pojawi się jego opis. Wciśnij wykonaj ćwiczenie stań przed kamerą i ćwicz! &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
