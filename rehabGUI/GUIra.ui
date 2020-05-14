@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>680</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RehabAssistance</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>680</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:black</string>
+    </property>
+    <widget class="QWidget" name="mainPage">
+     <widget class="QPushButton" name="buttonRecord">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Nagraj ćwiczenie</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="title">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>371</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:#FFCC00; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;</string>
+      </property>
+      <property name="text">
+       <string>RehabAssistance</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>150</y>
+        <width>321</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Helvetica Neue,sans-serif</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Program ma na celu pomóc w trudnym procesie rehabilitacji za pomocą wykorzystania technologii (cos dopisac). &lt;/p&gt;&lt;p&gt;Dzięki pobraniu obrazu z kamery jest on w stanie stwierdzić czy dobrze czy źle wykonywane jest dane ćwiczenie na podstawie wcześniej zapisanych próbek.&lt;/p&gt;&lt;p&gt;Można również nagrywać nowe ćwiczenia co daje dodatkowe możliwości personalizacji.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrain">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Wykonaj ćwiczenie</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonAuthor">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Autor</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>110</y>
+        <width>341</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;</string>
+      </property>
+      <property name="text">
+       <string>Streszczenie działania programu</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonExit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Wyjście</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="trainInfoPage">
+     <widget class="QLabel" name="labelInfoTrainDescription">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>381</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Helvetica Neue,sans-serif</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wybierz ćwiczenie, w oknie obok pojawi się jego opis. Wciśnij wykonaj ćwiczenie stań przed kamerą i ćwicz! &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="exerciseInfoList">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>20</y>
+        <width>256</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Ćwiczenie 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ćwiczenie 2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ćwiczenie 3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ćwiczenie 4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="previewLabel">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>130</y>
+        <width>191</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>Opis ćwiczenia</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrainInfoNow">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Wykonaj ćwiczenie</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrainInfoBack">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Cofnij</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="trainPage">
+     <widget class="QPushButton" name="buttonTrainStop">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrainFinish">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Zakończ i zapisz</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrainStart">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frameTrain">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>10</y>
+        <width>481</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelTrainName">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;</string>
+      </property>
+      <property name="text">
+       <string>Nazwa ćwiczenia</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonTrainBack">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Cofnij</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="recordInfoPage">
+     <widget class="QLabel" name="labelRecordDescription">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>421</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Helvetica Neue,sans-serif</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wypełnij nazwę i opis ćwiczenia następnie wciśnij wykonaj ćwiczenie stań przed kamerą i je wykonaj zostanie ono zapisane do folderu, w którym umieszczona jest aplikacja. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelRecordName">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>130</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;</string>
+      </property>
+      <property name="text">
+       <string>Nazwa ćwiczenia</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonRecordInfoBack">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Cofnij</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineDescription">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>180</y>
+        <width>181</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="maxLength">
+       <number>2000</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonRecordInfoNow">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Wykonaj ćwiczenie</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineName">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>130</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="maxLength">
+       <number>30</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelInfoRecord">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>180</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;</string>
+      </property>
+      <property name="text">
+       <string>Opis ćwiczenia</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="recordPage">
+     <widget class="QPushButton" name="buttonRecordFinish">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Zakończ i zapisz</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonRecordStop">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frameRecord">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>481</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonRecordStart">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonRecordBack">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#FFCC00;
+font: 8pt &quot;Tahoma&quot;;
+color:231900;
+border-style:outset;
+border-width:2px;
+border-radius:10px;
+border-color:black;
+font: bold 14px;
+padding: 6px; 
+min-width:10px;
+</string>
+      </property>
+      <property name="text">
+       <string>Cofnij</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelRecordName_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;</string>
+      </property>
+      <property name="text">
+       <string>Nazwa ćwiczenia</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
