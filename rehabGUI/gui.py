@@ -6,36 +6,17 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtGui, QtWidgets, QtCore
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
-from PyQt5.QtGui import QPixmap
-import sys
-import cv2
-from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
-import numpy as np
-import os
 
-class VideoThread(QThread):
-    changePixmapSignal = pyqtSignal(np.ndarray)
 
-    def run(self):
-        # capture from web cam
-        cap = cv2.VideoCapture(0)
-        while True:
-            ret, cvImg = cap.read()
-            if ret:
-                self.changePixmapSignal.emit(cvImg)
+from sys import exit as sysExit
 
-    def stop(self):
-        """Sets run flag to False and waits for thread to finish"""
-        self._runFlag = False
-        self.wait()
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(680, 400)
+        MainWindow.resize(684, 400)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
@@ -63,7 +44,6 @@ class Ui_MainWindow(object):
 "min-width:10px;\n"
 "")
         self.buttonRecord.setObjectName("buttonRecord")
-
         self.title = QtWidgets.QLabel(self.mainPage)
         self.title.setGeometry(QtCore.QRect(10, 20, 371, 61))
         self.title.setStyleSheet("color:#FFCC00; font-family: \'Helvetica Neue\', sans-serif; font-size: 30px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;")
@@ -244,10 +224,6 @@ class Ui_MainWindow(object):
 "min-width:10px;\n"
 "")
         self.buttonTrainStart.setObjectName("buttonTrainStart")
-        self.labelTrain = QtWidgets.QLabel(self.trainPage)
-        self.labelTrain.setGeometry(QtCore.QRect(230, 20, 432, 368))
-        self.labelTrain.setText("")
-        self.labelTrain.setObjectName("labelTrain")
         self.labelTrainName = QtWidgets.QLabel(self.trainPage)
         self.labelTrainName.setGeometry(QtCore.QRect(10, 20, 151, 16))
         self.labelTrainName.setStyleSheet("color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;")
@@ -266,6 +242,10 @@ class Ui_MainWindow(object):
 "min-width:10px;\n"
 "")
         self.buttonTrainBack.setObjectName("buttonTrainBack")
+        self.labelTrain = QtWidgets.QLabel(self.trainPage)
+        self.labelTrain.setGeometry(QtCore.QRect(230, 20, 432, 368))
+        self.labelTrain.setText("")
+        self.labelTrain.setObjectName("labelTrain")
         self.stackedWidget.addWidget(self.trainPage)
         self.recordInfoPage = QtWidgets.QWidget()
         self.recordInfoPage.setObjectName("recordInfoPage")
@@ -285,6 +265,8 @@ class Ui_MainWindow(object):
         self.labelRecordName.setGeometry(QtCore.QRect(60, 130, 151, 16))
         self.labelRecordName.setStyleSheet("color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;")
         self.labelRecordName.setObjectName("labelRecordName")
+
+
         self.buttonRecordInfoBack = QtWidgets.QPushButton(self.recordInfoPage)
         self.buttonRecordInfoBack.setGeometry(QtCore.QRect(20, 340, 151, 41))
         self.buttonRecordInfoBack.setStyleSheet("background-color:#FFCC00;\n"
@@ -380,10 +362,6 @@ class Ui_MainWindow(object):
 "min-width:10px;\n"
 "")
         self.buttonRecordStop.setObjectName("buttonRecordStop")
-        self.labelRecord = QtWidgets.QLabel(self.recordPage)
-        self.labelRecord.setGeometry(QtCore.QRect(230, 20, 432, 368))
-        self.labelRecord.setText("")
-        self.labelRecord.setObjectName("labelRecord")
         self.buttonRecordStart = QtWidgets.QPushButton(self.recordPage)
         self.buttonRecordStart.setGeometry(QtCore.QRect(20, 190, 151, 41))
         self.buttonRecordStart.setStyleSheet("background-color:#FFCC00;\n"
@@ -416,31 +394,31 @@ class Ui_MainWindow(object):
         self.labelRecordName_2.setGeometry(QtCore.QRect(30, 30, 151, 16))
         self.labelRecordName_2.setStyleSheet("color:white;font-size: 15px; font-weight: 300; line-height: 32px;font: bold 16px;")
         self.labelRecordName_2.setObjectName("labelRecordName_2")
+        self.labelRecord = QtWidgets.QLabel(self.recordPage)
+        self.labelRecord.setGeometry(QtCore.QRect(230, 20, 432, 368))
+        self.labelRecord.setText("")
+        self.labelRecord.setObjectName("labelRecord")
         self.stackedWidget.addWidget(self.recordPage)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
-        """Button functions """
-        #menuPage
+        # button functions
+        # menuPage
         self.buttonTrain.clicked.connect(self.nextPageTrainInfo)
         self.buttonRecord.clicked.connect(self.nextPageRecordInfo)
         self.buttonExit.clicked.connect(self.exit)
-        #trainInfoPage
+        # trainInfoPage
         self.buttonTrainInfoNow.clicked.connect(self.nextPageTrain)
-
         self.buttonTrainInfoBack.clicked.connect(self.backPageMenu)
-        #trainpage
+        # trainpage
         self.buttonTrainBack.clicked.connect(self.backPageTrainInfo)
 
-        #recordInfoPage
+        # recordInfoPage
         self.buttonRecordInfoNow.clicked.connect(self.nextPageRecord)
         self.buttonRecordInfoBack.clicked.connect(self.backPageMenu)
-        #trainpage
+        # trainpage
         self.buttonRecordBack.clicked.connect(self.backPageRecordInfo)
+        # menu
 
-    """Menu"""
     def nextPageRecordInfo(self):
         self.stackedWidget.setCurrentIndex(3)
 
@@ -448,28 +426,31 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(1)
 
     def exit(self):
-        SystemExit
+        sysExit()
+        # trainInfo
 
-        """Train Info"""
     def nextPageTrain(self):
-        self.startRecordingTrain()
         self.stackedWidget.setCurrentIndex(2)
 
     def backPageMenu(self):
         self.stackedWidget.setCurrentIndex(0)
-        """Train"""
+        # train
+
     def backPageTrainInfo(self):
         self.stackedWidget.setCurrentIndex(1)
 
-        """record info"""
+        # recordInfo
+
     def nextPageRecord(self):
-        self.startRecordingRecord()
         self.stackedWidget.setCurrentIndex(4)
 
-        """record"""
+        # record
+
     def backPageRecordInfo(self):
         self.stackedWidget.setCurrentIndex(3)
 
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -512,36 +493,12 @@ class Ui_MainWindow(object):
         self.buttonRecordBack.setText(_translate("MainWindow", "Cofnij"))
         self.labelRecordName_2.setText(_translate("MainWindow", "Nazwa ćwiczenia"))
 
-    """webcam implementation"""
-    def startRecordingRecord(self):
-        self.thread = VideoThread()
-        self.thread.changePixmapSignal.connect(self.updateImageRecord)
-        self.thread.start()
 
-    def startRecordingTrain(self):
-        self.thread = VideoThread()
-        self.thread.changePixmapSignal.connect(self.updateImageTrain)
-        self.thread.start()
-
-    def convertCvQt(self, cvImg):
-        """Convert from an opencv image to QPixmap"""
-        rgbImage = cv2.cvtColor(cvImg, cv2.COLOR_BGR2RGB)
-        h, w, ch = rgbImage.shape
-        bytes_per_line = ch * w
-        convertToQt = QtGui.QImage(rgbImage.data, w, h, bytes_per_line, QtGui.QImage.Format_RGB888)
-        p = convertToQt.scaled(800, 600, Qt.KeepAspectRatio)
-        return QPixmap.fromImage(p)
-
-    def closeEvent(self, event):
-        self.thread.stop()
-        event.accept()
-
-    def updateImageTrain(self, cvImg):
-        """Updates the image_label with a new opencv image"""
-        qtImg = self.convertCvQt(cvImg)
-        self.labelTrain.setPixmap(qtImg)
-
-    def updateImageRecord(self, cvImg):
-        """Updates the image_label with a new opencv image"""
-        qtImg = self.convertCvQt(cvImg)
-        self.labelRecord.setPixmap(qtImg)
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
