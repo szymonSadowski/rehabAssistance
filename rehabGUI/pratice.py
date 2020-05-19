@@ -5,7 +5,15 @@
 # Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
+import argparse
+import logging
+import time
 
+import cv2
+import numpy as np
+import tf_pose
+from tf_pose.estimator import TfPoseEstimator
+from tf_pose.networks import get_graph_path, model_wh
 from PyQt5 import QtGui, QtWidgets, QtCore
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
 from PyQt5.QtGui import QPixmap
@@ -15,21 +23,35 @@ from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
 import os
 
+
 class VideoThread(QThread):
+
+    model = "mobilenet_thin"
+    camera = 0
     change_pixmap_signal = pyqtSignal(np.ndarray)
+    #w, h = model_wh(model)
 
     def run(self):
         # capture from web cam
-        cap = cv2.VideoCapture(0)
+        e = TfPoseEstimator(get_graph_path(model), target_size=(432, 368))
+        cap = cv2.VideoCapture(camera)
+
         while True:
             ret, cv_img = cap.read()
             if ret:
-                self.change_pixmap_signal.emit(cv_img)
+                 humans = e.inference(cv_img)
+                 cv_img = TfPoseEstimator.draw_humans(cv_img, humans, imgcopy=False)
+                 # self.change_pixmap_signal.emit(cv_img)
+                 cv2.imshow('frame',cv_img)
+
 
     def stop(self):
         """Sets run flag to False and waits for thread to finish"""
         self._run_flag = False
         self.wait()
+
+    def str2bool(v):
+        return v.lower() in ("yes", "true", "t", "1")
 
 class Ui_MainWindow(object):
 
@@ -53,10 +75,6 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        # grey = QPixmap(500, 500)
-        # grey.fill(QColor('darkGray'))
-        # self.label.setPixmap(grey)
-        # self.pushButton.clicked.connect(self.showImg)
         self.thread = VideoThread()
         self.thread.change_pixmap_signal.connect(self.update_image)
         self.thread.start()
@@ -64,10 +82,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    # def showImg(self):
-    #     cv_img = cv2.imread('ski.jpg')
-    #     qt_img = self.convert_cv_qt(cv_img)
-    #     self.label.setPixmap(qt_img)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
