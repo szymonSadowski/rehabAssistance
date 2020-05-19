@@ -15,8 +15,8 @@ import cv2
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
 import os
-from tf_pose.estimator import TfPoseEstimator
-from tf_pose.networks import get_graph_path, model_wh
+#from tf_pose.estimator import TfPoseEstimator
+#from tf_pose.networks import get_graph_path, model_wh
 
 
 class VideoThread(QThread):
