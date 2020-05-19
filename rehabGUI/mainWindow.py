@@ -5,21 +5,18 @@
 # Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
+import argparse
 
+from PyQt5 import QtGui, QtWidgets, QtCore
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
+from PyQt5.QtGui import QPixmap
+import sys
 import cv2
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
 import os
-import sys
-import sys
-from PyQt5 import QtGui, QtWidgets, QtCore
-from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
-
-#sys.path.insert(0,'C:/Users/szymo/gitRepo/rehabAssistance/tf-pose-estimation/tf_pose/')
 from tf_pose.estimator import TfPoseEstimator
 from tf_pose.networks import get_graph_path, model_wh
-
 
 
 class VideoThread(QThread):
@@ -34,30 +31,30 @@ class VideoThread(QThread):
 
         parser.add_argument('--resize', type=str, default='432x368',
                             help='if provided, resize images before they are processed. default=0x0, Recommends : 432x368 or 656x368 or 1312x736 ')
-
         parser.add_argument('--resize-out-ratio', type=float, default=4.0,
-                        help='if provided, resize heatmaps before they are post-processed. default=1.0')
+                            help='if provided, resize heatmaps before they are post-processed. default=1.0')
 
         parser.add_argument('--model', type=str, default='mobilenet_thin',
-                        help='cmu / mobilenet_thin / mobilenet_v2_large / mobilenet_v2_small')
+                            help='cmu / mobilenet_thin / mobilenet_v2_large / mobilenet_v2_small')
         parser.add_argument('--show-process', type=bool, default=False,
-                        help='for debug purpose, if enabled, speed for inference is dropped.')
+                            help='for debug purpose, if enabled, speed for inference is dropped.')
 
         parser.add_argument('--tensorrt', type=str, default="False",
-                        help='for tensorrt process.')
+                            help='for tensorrt process.')
 
         args = parser.parse_args()
-
+        # capture from web cam
         cap = cv2.VideoCapture(0)
         w, h = model_wh(args.resize)
         e = TfPoseEstimator(get_graph_path(model), target_size=(w, h))
         while True:
             ret, cvImg = cap.read()
-            humans = e.inference(cvImg, resize_to_default=(w > 0 and h > 0), upsample_size=args.resize_out_ratio)
-            cvImg = TfPoseEstimator.draw_humans(cvImg, humans, imgcopy=False)
-            self.changePixmapSignal.emit(cvImg)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            if ret:
+                humans = e.inference(cvImg, resize_to_default=(w > 0 and h > 0), upsample_size=args.resize_out_ratio)
+                cvImg = TfPoseEstimator.draw_humans(cvImg, humans, imgcopy=False)
+                self.changePixmapSignal.emit(cvImg)
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
     def stop(self):
         """Sets run flag to False and waits for thread to finish"""
         self._runFlag = False
