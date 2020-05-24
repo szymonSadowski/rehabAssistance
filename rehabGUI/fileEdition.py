@@ -41,3 +41,15 @@ def append_json(name, description):
             write_json(data)
     except IOError as e:
         print(e + "IO ERROR unable to open json")
+
+
+def give_description(exercise):
+    try:
+        with open('data.json', 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            for name in data['exercises']:
+                if name['name'] == exercise:
+                    answer = name['description']
+            return answer
+    except IOError as e:
+        print(e + "IO ERROR unable to open json")

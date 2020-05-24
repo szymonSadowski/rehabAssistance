@@ -474,11 +474,15 @@ class Ui_MainWindow(object):
         self.buttonRecordBack.clicked.connect(self.backPageRecordInfo)
 
         """QlistWidget"""
-        self.exerciseInfoList.itemClicked.connect(self.itemClick)
+        self.exerciseInfoList.itemClicked.connect(self.showDescription)
 
-    def itemClick(self):
+    def showDescription(self):
+        # get name of the item
         item = self.exerciseInfoList.currentItem()
-        self.previewLabel.setText(str(item.text()))
+        #change it to text
+        description = fileEdition.give_description(str(item.text()))
+        #
+        self.previewLabel.setText(description)
 
 
 
