@@ -1,0 +1,94 @@
+{
+  "exercises": [
+    {
+      "body_part": "BodyPart:0-(0.51, 0.16) score=0.77",
+      "x": "111",
+      "y": "38"
+    },
+    {
+      "body_part": "BodyPart:1-(0.50, 0.22) score=0.78",
+      "x": "110",
+      "y": "52"
+    },
+    {
+      "body_part": "BodyPart:2-(0.42, 0.22) score=0.73",
+      "x": "91",
+      "y": "52"
+    },
+    {
+      "body_part": "BodyPart:3-(0.37, 0.28) score=0.63",
+      "x": "79",
+      "y": "66"
+    },
+    {
+      "body_part": "BodyPart:4-(0.27, 0.32) score=0.54",
+      "x": "59",
+      "y": "74"
+    },
+    {
+      "body_part": "BodyPart:5-(0.59, 0.22) score=0.66",
+      "x": "129",
+      "y": "50"
+    },
+    {
+      "body_part": "BodyPart:6-(0.67, 0.35) score=0.67",
+      "x": "145",
+      "y": "82"
+    },
+    {
+      "body_part": "BodyPart:7-(0.66, 0.46) score=0.67",
+      "x": "144",
+      "y": "107"
+    },
+    {
+      "body_part": "BodyPart:8-(0.50, 0.47) score=0.53",
+      "x": "107",
+      "y": "108"
+    },
+    {
+      "body_part": "BodyPart:9-(0.48, 0.60) score=0.62",
+      "x": "103",
+      "y": "140"
+    },
+    {
+      "body_part": "BodyPart:10-(0.53, 0.83) score=0.72",
+      "x": "115",
+      "y": "192"
+    },
+    {
+      "body_part": "BodyPart:11-(0.62, 0.46) score=0.52",
+      "x": "134",
+      "y": "107"
+    },
+    {
+      "body_part": "BodyPart:12-(0.67, 0.62) score=0.68",
+      "x": "146",
+      "y": "145"
+    },
+    {
+      "body_part": "BodyPart:13-(0.71, 0.78) score=0.55",
+      "x": "154",
+      "y": "180"
+    },
+    {
+      "body_part": "BodyPart:14-(0.50, 0.15) score=0.69",
+      "x": "107",
+      "y": "35"
+    },
+    {
+      "body_part": "BodyPart:15-(0.52, 0.15) score=0.82",
+      "x": "114",
+      "y": "34"
+    },
+    {
+      "body_part": "BodyPart:16-(0.46, 0.14) score=0.75",
+      "x": "99",
+      "y": "33"
+    },
+    {
+      "body_part": "BodyPart:17-(0.55, 0.14) score=0.67",
+      "x": "119",
+      "y": "32"
+    }
+  ]
+}

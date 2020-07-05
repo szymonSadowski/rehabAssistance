@@ -15,7 +15,7 @@ import cv2
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
 import fileEdition
-import fileOperations
+import imageThings
 import os
 #from tf_pose.estimator import TfPoseEstimator
 #from tf_pose.networks import get_graph_path, model_wh
@@ -518,6 +518,20 @@ class Ui_MainWindow(object):
         names = fileEdition.give_names()
         name = self.lineName.text()
         description = self.lineDescription.text()
+        centers = fileEdition.get_cordinates('exercise.json')
+        print (centers)
+        img = cv2.imread(r'test.jpg', 0)
+
+        for center in centers:
+             x = center[0]
+             y = center[1]
+             print("xy", x, y)
+             int(x)
+             int(y)
+             print("poincie", int(x), int(y))
+             cv2.circle(img, (int(x), int(y)), radius=0, color=(0, 0, 255), thickness=4)
+
+        cv2.imshow("img", img)
 
         if name and description:
             if name not in names:

@@ -4,6 +4,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 import mainWindow
+import fileEdition
 
 LOCAL_DIR = os.path.dirname(os.path.realpath(__file__))
 
